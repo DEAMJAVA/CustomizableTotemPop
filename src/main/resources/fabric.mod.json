@@ -1,0 +1,53 @@
+{
+	"schemaVersion": 1,
+	"id": "customizable-totem-pop",
+	"version": "${version}",
+	"name": "Customizable Totem Pop",
+	"description": "Customize the totem of undying pop animation — offset, scale, opacity, duration, flip, and more.",
+	"authors": ["DEAMJAVA"],
+	"contact": {
+		"homepage": "https://github.com/DEAMJAVA/CustomizableTotemPop",
+		"sources": "https://github.com/DEAMJAVA/CustomizableTotemPop"
+	},
+	"license": "GPLv3",
+	"icon": "assets/customizable-totem-pop/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "net.deamjava.customizable_totem_pop.CustomizableTotemPop",
+				"adapter": "kotlin"
+			}
+		],
+		"client": [
+			{
+				"value": "net.deamjava.customizable_totem_pop.client.CustomizableTotemPopClient",
+				"adapter": "kotlin"
+			}
+		],
+		"modmenu": [
+			{
+				"value": "net.deamjava.customizable_totem_pop.client.ModMenuIntegration",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"customizable-totem-pop.mixins.json",
+		{
+			"config": "customizable-totem-pop.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-language-kotlin": "*",
+		"cloth-config2": "*",
+		"modmenu": "*"
+	},
+	"suggests": {
+		"fabric-api": "*"
+	}
+}

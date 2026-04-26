@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "net.deamjava.customizable_totem_pop.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "net.deamjava.customizable_totem_pop.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ScreenEffectRendererAccessor",
+    "ScreenEffectRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+	}
+}
