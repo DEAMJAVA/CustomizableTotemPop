@@ -45,18 +45,15 @@ public class ScreenEffectRendererMixin {
 
         if (item == null || ticks <= 0) return;
 
-        // ── Progress along the animation curve ───────────────────────────────
         float durMul = TotemAnimationConfig.INSTANCE.getDurationMultiplier();
-        int   elapsed = 40 - ticks;                    // vanilla: 0..39
+        int   elapsed = 40 - ticks;
         float scale   = Math.min((elapsed + partialTicks) / (40.0f * durMul), 1.0f);
 
         float ts = scale * scale;
         float tc = scale * ts;
-        // Vanilla cubic-ease "pop" curve
         float smoothScale = 10.25f*tc*ts - 24.95f*ts*ts + 25.5f*tc - 13.8f*ts + 4.0f*scale;
         float piScale     = smoothScale * (float) Math.PI;
 
-        // ── Config values ─────────────────────────────────────────────────────
         float cfgOffX  = TotemAnimationConfig.INSTANCE.getOffsetX();
         float cfgOffY  = TotemAnimationConfig.INSTANCE.getOffsetY();
         float cfgScale = TotemAnimationConfig.INSTANCE.getScale();
@@ -67,13 +64,11 @@ public class ScreenEffectRendererMixin {
         float aspect   = (float) minecraft.getWindow().getWidth()
                 / minecraft.getWindow().getHeight();
 
-        // Random per-activation drift (vanilla behaviour) + user static offset
         float driftX = acc.getItemActivationOffX() * 0.3f * aspect * Mth.abs(Mth.sin(piScale * 2.0f));
         float driftY = acc.getItemActivationOffY() * 0.3f           * Mth.abs(Mth.sin(piScale * 2.0f));
 
 
 
-        // User static offset is constant throughout — never passes through center
         float staticOffX = cfgOffX * 0.3f * aspect;
         float staticOffY = cfgOffY * 0.3f;
 
@@ -97,10 +92,9 @@ public class ScreenEffectRendererMixin {
         poseStack.mulPose(Axis.XP.rotationDegrees(6.0f * Mth.cos(scale * 8.0f)));
         poseStack.mulPose(Axis.ZP.rotationDegrees(6.0f * Mth.cos(scale * 8.0f)));
 
-        // Scale packed full-bright light by opacity for a fade effect
         int combinedLight = Math.round(15728880 * opacity);
 
-        minecraft.gameRenderer.getLighting().setupFor(Lighting.Entry.ITEMS_3D);
+        minecraft.gameRenderer.lighting().setupFor(Lighting.Entry.ITEMS_3D);
         ItemStackRenderState itemState = new ItemStackRenderState();
         minecraft.getItemModelResolver().updateForTopItem(
                 itemState, item, ItemDisplayContext.FIXED, minecraft.level, null, 0

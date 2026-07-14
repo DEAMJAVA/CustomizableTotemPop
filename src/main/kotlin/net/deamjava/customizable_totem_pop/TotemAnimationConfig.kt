@@ -6,11 +6,11 @@ import java.io.File
 
 data class TotemConfigData(
     var enabled: Boolean = true,
-    var offsetX: Float = 0f,           // -1.0 to 1.0: shifts overlay left/right
-    var offsetY: Float = 0f,           // -1.0 to 1.0: shifts overlay up/down
-    var scale: Float = 1f,             // 0.1 to 5.0: multiplier on the base 0.8f model scale
-    var opacity: Float = 1f,           // 0.0 to 1.0: max alpha of the animation
-    var durationMultiplier: Float = 1f,// 0.1 to 3.0: >1 = slower, <1 = faster
+    var offsetX: Float = 0f,
+    var offsetY: Float = 0f,
+    var scale: Float = 1f,
+    var opacity: Float = 1f,
+    var durationMultiplier: Float = 1f,
     var flipHorizontal: Boolean = false,
     var flipVertical: Boolean = false,
 )
@@ -42,7 +42,6 @@ object TotemAnimationConfig {
         CONFIG_FILE.writeText(GSON.toJson(data))
     }
 
-    // Convenience accessors used by the mixin
     val isEnabled get() = data.enabled
     val offsetX get() = data.offsetX
     val offsetY get() = data.offsetY
