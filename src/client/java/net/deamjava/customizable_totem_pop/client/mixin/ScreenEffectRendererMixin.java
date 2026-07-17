@@ -3,7 +3,7 @@ package net.deamjava.customizable_totem_pop.client.mixin;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.deamjava.customizable_totem_pop.TotemAnimationConfig;
+import net.deamjava.customizable_totem_pop.client.TotemAnimationConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ScreenEffectRenderer;
 import net.minecraft.client.renderer.SubmitNodeCollector;

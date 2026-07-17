@@ -1,4 +1,4 @@
-package net.deamjava.customizable_totem_pop
+package net.deamjava.customizable_totem_pop.client
 
 import com.google.gson.GsonBuilder
 import net.fabricmc.loader.api.FabricLoader

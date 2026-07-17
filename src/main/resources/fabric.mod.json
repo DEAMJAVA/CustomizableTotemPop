@@ -13,12 +13,6 @@
 	"icon": "assets/customizable-totem-pop/icon.png",
 	"environment": "client",
 	"entrypoints": {
-		"main": [
-			{
-				"value": "net.deamjava.customizable_totem_pop.CustomizableTotemPop",
-				"adapter": "kotlin"
-			}
-		],
 		"client": [
 			{
 				"value": "net.deamjava.customizable_totem_pop.client.CustomizableTotemPopClient",
@@ -33,7 +27,6 @@
 		]
 	},
 	"mixins": [
-		"customizable-totem-pop.mixins.json",
 		{
 			"config": "customizable-totem-pop.client.mixins.json",
 			"environment": "client"

@@ -1,7 +1,7 @@
 package net.deamjava.customizable_totem_pop.client.screen
 
 import me.shedaniel.clothconfig2.api.ConfigBuilder
-import net.deamjava.customizable_totem_pop.TotemAnimationConfig
+import net.deamjava.customizable_totem_pop.client.TotemAnimationConfig
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
 import net.minecraft.client.gui.screens.Screen
